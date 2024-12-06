@@ -1,0 +1,30 @@
+package zoo;
+
+public class Gato extends Animal {
+	public void setPeso(double peso) {
+		if(peso < 0) {
+			this.peso = 1;
+			System.out.println("O valor foi alterado para 1 pois você passou um valor inválido");
+		} else {
+			this.peso = peso;
+		}
+	}
+
+	public void emitirSom() {
+		if (peso <= 3) {
+			System.out.println("Miau!");			
+		}
+
+		if (peso > 3 && peso <= 5) {
+			System.out.println("Miaaau!");			
+		}
+
+		if (peso > 5) {
+			System.out.println("Miau! Miau!");
+		}
+	}
+	
+	public void saltar() {
+		System.out.println("saltando...");
+	}
+}

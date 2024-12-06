@@ -1,0 +1,11 @@
+package zoo;
+
+public class App {
+
+	public static void main(String[] args) {
+		Gato gato = new Gato();
+		
+		gato.saltar();
+	}
+
+}

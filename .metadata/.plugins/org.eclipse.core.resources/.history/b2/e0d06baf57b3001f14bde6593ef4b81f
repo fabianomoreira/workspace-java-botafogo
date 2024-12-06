@@ -1,0 +1,22 @@
+package zoo;
+
+public class App {
+
+	public static void main(String[] args) {
+		Gato gato = new Gato();
+		Cachorro cao = new Cachorro();
+		Jacare jaca = new Jacare();
+		
+		jaca.setPeso(50);
+		jaca.setRaca("Papo Amarelo");
+		jaca.brincar();
+		System.out.println("O jacaré pesa : " + jaca.getPeso());
+		
+		cao.brincar();
+		
+		gato.setCor("Branco");
+		gato.setRaca("Vira lata");
+		gato.setPeso(-2);
+	}
+
+}
