@@ -6,6 +6,30 @@ public class Tarefa {
 	private int prazo;
 	private boolean finalizada;
 	
+	public Tarefa() {
+		
+	}
+	
+	public Tarefa(int id, String descricao, int prazo, boolean finalizada) {
+		this.id = id;
+		this.descricao = descricao;
+		this.prazo = prazo;
+		this.finalizada = finalizada;
+	}
+	
+	public Tarefa(int id, String descricao, int prazo) {
+		this.id = id;
+		this.descricao = descricao;
+		this.prazo = prazo;
+		this.finalizada = false;
+	}
+	
+	@Override
+	public String toString() {
+		return "Tarefa [id=" + id + ", descricao=" + descricao + ", prazo=" + prazo + ", finalizada=" + finalizada
+				+ "]";
+	}
+	
 	public int getId() {
 		return id;
 	}
