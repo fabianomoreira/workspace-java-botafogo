@@ -26,7 +26,10 @@ public class Tarefa {
 	
 	@Override
 	public String toString() {
-		return "Tarefa [id=" + id + ", descricao=" + descricao + ", prazo=" + prazo + ", finalizada=" + finalizada
+		return "Tarefa [id=" + id + ", "
+				+ "descricao=" + descricao + ", "
+				+ "prazo=" + prazo + 
+				", finalizada=" + finalizada
 				+ "]";
 	}
 	

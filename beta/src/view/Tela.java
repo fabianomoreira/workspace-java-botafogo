@@ -35,4 +35,39 @@ public class Tela {
 		
 		return tarefa;
 	}
+	
+	public void exibirTarefa(Tarefa tarefa) {
+		System.out.println("C O N S U L T A");
+		System.out.println(tarefa);
+		System.out.println("--------------------------------------------");
+	}
+	
+	public Tarefa exibirAlteracao(Tarefa tarefa) {
+		Scanner teclado = new Scanner(System.in);
+
+		System.out.println("A L T E R A Ç Ã O");
+		System.out.println("Descrição : ");
+		tarefa.setDescricao(teclado.nextLine());
+		System.out.println("Prazo : ");
+		tarefa.setPrazo(teclado.nextInt());
+		System.out.println("Finalizada (S/N)? ");
+		String status = teclado.next();
+		
+		if(status.equals("S") || status.equals("s")) {
+			tarefa.setFinalizada(true);	
+		} else {
+			tarefa.setFinalizada(false);
+		}
+		
+		return tarefa;
+	}
+	
+	public Tarefa exibirExclusao(Tarefa tarefa) {
+		tarefa.setDescricao("");
+		tarefa.setFinalizada(false);
+		tarefa.setPrazo(0);
+		System.out.println("Tarefa excluída!");
+		
+		return tarefa;
+	}
 }
