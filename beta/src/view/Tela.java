@@ -39,8 +39,8 @@ public class Tela {
 		return tarefa;
 	}
 	
-	public void exibirTarefa(List<Tarefa> tarefas) {
-		System.out.println("C O N S U L T A");
+	public void exibirTarefa(List<Tarefa> tarefas, String titulo) {
+		System.out.println(titulo);
 		
 		for(Tarefa item: tarefas) {
 			System.out.println(item);
@@ -48,11 +48,17 @@ public class Tela {
 		}
 	}
 	
-	public Tarefa exibirAlteracao(Tarefa tarefa) {
+	public List<Tarefa> exibirAlteracao(List<Tarefa> tarefas) {
 		Scanner teclado = new Scanner(System.in);
 		Scanner menu = new Scanner(System.in);
+		Scanner tarefaScanner = new Scanner(System.in);
 		
-		System.out.println("A L T E R A Ç Ã O");
+		exibirTarefa(tarefas, "A L T E R A Ç Ã O");
+		System.out.println("--------------------------------");
+		System.out.println("Qual o id da tarefa você quer alterar?");
+		int opcaoTarefa = tarefaScanner.nextInt();
+		
+		Tarefa tarefa = buscarTarefa(tarefas, opcaoTarefa);
 		
 		System.out.println("--------------------------------");
 		System.out.println("1 - Descrição");
@@ -81,11 +87,11 @@ public class Tela {
 			System.out.println("Opção inválida");
 		}
 		
-		return tarefa;
+		return tarefas;
 	}
 	
 	public List<Tarefa> exibirExclusao(List<Tarefa> tarefas) {
-		exibirTarefa(tarefas);
+		exibirTarefa(tarefas, "E X C L U S Ã O");
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -93,16 +99,24 @@ public class Tela {
 		int busca = scanner.nextInt();
 		Tarefa registro = null;
 		
-		for(Tarefa tarefa: tarefas) {
-			if(tarefa.getId() == busca) {
-				registro = tarefa;
-			}
-		}
+		registro = buscarTarefa(tarefas, busca);
 
 		tarefas.remove(registro);
 
 		System.out.println("Tarefa excluída!");
 		
 		return tarefas;
+	}
+	
+	public Tarefa buscarTarefa(List<Tarefa> tarefas, int id) {
+		Tarefa registro = null;
+		
+		for(Tarefa tarefa: tarefas) {
+			if(tarefa.getId() == id) {
+				registro = tarefa;
+			}
+		}
+		
+		return registro;
 	}
 }
